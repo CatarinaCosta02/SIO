@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}Departments{% endblock %}
+
+{% block content %}
+    <section class="page-title bg-1">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <h1 class="mb-5 text-lg">Our Departments</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section service-2">
+        <div class="container">
+            <div class="row">
+                {% for dep in departments %}
+                <div class="col-lg-4 col-md-6 ">
+                    <div class="department-block mb-5">
+                        <img src="{{ url_for('static', filename=dep.url_photo) }}" alt="" class="img-fluid w-100">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">{{ dep.name }}</h4>
+                            <p class="mb-4">{{ dep.description }}</p>
+                            <a href="{{ url_for('departments_single', _id=dep.id) }}" class="read-more">Learn More<i
+                                    class="icofont-simple-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

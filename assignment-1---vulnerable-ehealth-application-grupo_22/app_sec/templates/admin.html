@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    <section class="page-title bg-1">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <h1 class="text-capitalize mb-5 text-lg">Admin Page</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="mt-4 mb-2 htext-md title-color">All Appointments</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1">User</th>
+                            <th class="col-md-1">Doctor</th>
+                            <th class="col-md-2">Start Date</th>
+                            <th class="col-md-2">End Date</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for a in appointments %}
+                            <tr>
+                                <td>{{ a.u_first_name }} {{ a.u_last_name }}</td>
+                                <td>{{ a.d_first_name }} {{ a.d_last_name }}</td>
+                                <td>{{ a.start_date }}</td>
+                                <td>{{ a.end_date }}</td>
+                                {# <td>{{ a.message|safe }}</td> #}
+                                <td>{{ a.message }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12">
+                    <h2 class="mt-4 mb-2 htext-md title-color">All Contacts</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1">User</th>
+                            <th class="col-md-2">Subject</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for c in contacts %}
+                            <tr>
+                                <td>{{ c.u_first_name }} {{ c.u_last_name }}</td>
+                                {# <td>{{ c.subject|safe }}</td> #}
+                                {# <td>{{ c.message|safe }}</td> #}
+                                <td>{{ c.subject }}</td>
+                                <td>{{ c.message }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+    

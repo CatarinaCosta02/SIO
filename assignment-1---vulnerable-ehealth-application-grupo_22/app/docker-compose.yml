@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: clinic-app
+    build: .
+    ports:
+      - '5000:5000'
+    volumes:
+      - .:/app
+    # environment:
+    #  FLASK_DEBUG: True
+    links:
+      - db
+    networks:
+      - clinic-net
+  db:
+    container_name: clinic-db
+    image: mysql/mysql-server:5.7
+    ports:
+      - '3306:3306'
+    volumes:
+      - clinic-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clinic
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    networks:
+      - clinic-net
+
+# These are automatically created
+
+volumes:
+  clinic-db:
+
+networks:
+  clinic-net:

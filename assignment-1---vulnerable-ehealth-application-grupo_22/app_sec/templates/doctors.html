@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block title %}Doctors{% endblock %}
+
+{% block content %}
+    <section class="page-title bg-1">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <h1 class="text-lg">Our Doctors</h1>
+                        <div class="btn-container">
+                            <a href="{{ url_for('appointment') }}" class="btn btn-main-2 btn-icon btn-round-full">
+                                Make an appointment<i class="icofont-simple-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section doctors">
+        <div class="container">
+            <div class="col-12 text-center  mb-5">
+                <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                    <label class="btn active ">
+                        <input type="radio" name="shuffle-filter" value="all" checked="checked"/>All Departments
+                    </label>
+                    {% for d in departments %}
+                        <label class="btn">
+                            <input type="radio" name="shuffle-filter" value="{{ d.id }}"/>{{ d.name }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row shuffle-wrapper portfolio-gallery">
+                {% for doc in doctors %}
+                    <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item"
+                         data-groups="[&quot;{{ doc.id_department }}&quot;]">
+
+                        <div class="position-relative doctor-inner-box">
+                            <div class="doctor-profile">
+                                <div class="doctor-img">
+                                    <img src="{{ url_for('static', filename=doc.url_photo) }}" alt="doctor-image"
+                                         class="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="content mt-3">
+                                <h4 class="mb-0"><a
+                                        href="{{ url_for('doctors_single', _id=doc.id) }}">{{ doc.first_name }} {{ doc.last_name }}</a>
+                                </h4>
+                                <p>{{ doc.d_name }}</p>
+                            </div>
+                        </div>
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <title>Title</title>
+                        </head>
+                        <body>
+                        {{ doctor }}
+                        </body>
+                        </html>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

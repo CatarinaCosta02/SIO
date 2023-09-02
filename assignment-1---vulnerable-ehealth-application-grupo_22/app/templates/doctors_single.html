@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ doctor.first_name }} {{ doctor.last_name }}{% endblock %}
+
+{% block content %}
+
+    <section class="section doctors">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{ url_for('static', filename=doctor.url_photo) }}" alt="doctor-image"
+                         class="img-fluid w-100">
+                </div>
+                <div class="col-md-9">
+                    <h4 class="mb-0">{{ doctor.first_name }} {{ doctor.last_name }}</h4>
+                    <p>{{ doctor.d_name }}</p>
+                    {% if doctor.description %}
+                        <p>{{ doctor.description }}</p>
+                    {% endif %}
+                    <div class="btn-container">
+                        <a href="{{ url_for('appointment') }}" class="btn btn-main-2 btn-icon btn-round-full">
+                            Make an appointment<i class="icofont-simple-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

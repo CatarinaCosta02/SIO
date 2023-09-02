@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <div class="divider mb-3"></div>
+                        <h1 class="mb-3 mt-3">Emergency?<br>
+                            Call <a class="title-color" href="tel:+351234234234">234 234 234</a></h1>
+                        <p class="mb-4 pr-5">
+                            Welcome to the <strong>eHealth Corp</strong> website -
+                            <strong>Your clinic of choice!</strong>
+                        </p>
+                        <div class="btn-container">
+                            <a href="{{ url_for('appointment') }}" class="btn btn-main-2 btn-icon btn-round-full">
+                                Make an appointment<i class="icofont-simple-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="feature-block d-lg-flex">
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4"><i class="icofont-surgeon-alt"></i></div>
+                            <span>24/7 Service</span>
+                            <h4 class="mb-3">Online Appointment</h4>
+                            <p class="mb-4">Make an appointment with one of our doctors.</p>
+                            <a href="{{ url_for('appointment') }}" class="btn btn-main btn-round-full">
+                                Make an appointment</a>
+                        </div>
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4"><i class="icofont-surgeon-alt"></i></div>
+                            <span>24/7 Service</span>
+                            <h4 class="mb-3">Check Test Results</h4>
+                            <p class="mb-4">Check and download your test results or prescription.</p>
+                            <a href="{{ url_for('prescription') }}" class="btn btn-main btn-round-full">
+                                Check results</a>
+                        </div>
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4"><i class="icofont-ui-clock"></i></div>
+                            <span>In-person Service</span>
+                            <h4 class="mb-3">Reception Appointment</h4>
+                            <ul class="w-hours list-unstyled">
+                                <li class="d-flex justify-content-between">Mon - Fri :<span>8:00 - 18:00</span></li>
+                                <li class="d-flex justify-content-between">Sat :<span>9:00 - 17:00</span></li>
+                                <li class="d-flex justify-content-between">Sun :<span>10:00 - 17:00</span></li>
+                                <li class="d-flex justify-content-between">Holidays :<span>10:00 - 17:00</span></li>
+                            </ul>
+                        </div>
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4"><i class="icofont-support"></i></div>
+                            <span>Contacts</span>
+                            <h4 class="mb-3">Clinic Contacts</h4>
+                            <p>Contact us using your phone, email or by filling a form.</p>
+                            <a href="{{ url_for('contact') }}" class="btn btn-main btn-round-full">Get in contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

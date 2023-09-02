@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ department.name }}{% endblock %}
+
+{% block content %}
+
+    <section class="section doctors">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{ url_for('static', filename=department.url_photo) }}" alt="doctor-image"
+                         class="img-fluid w-100">
+                </div>
+                <div class="col-md-9">
+                    <h4 class="mb-0">{{ department.name }}</h4>
+                    <p>{{ department.description }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
